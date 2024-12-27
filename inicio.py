@@ -11,7 +11,7 @@ st.write("Helen Esmeralda Gil Alvarez")
 st.write("Julia Beatriz Henriquez Mendoza")
 
 st.markdown("""
-#Bienvenido
+#Bienvenido,
 Este proyecto incluye las siguientes páginas:""")
 st.header("EDA: Análisis Exploratorio de Datos")
 st.write("Este proyecto utilizó el conjunto de datos *Student Depression Dataset* en donde el objetivo es poder analizar y relacionar patrones que existen en los hábitos de los estudiantes")
