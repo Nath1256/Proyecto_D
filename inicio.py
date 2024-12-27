@@ -11,14 +11,15 @@ st.write("Helen Esmeralda Gil Alvarez")
 st.write("Julia Beatriz Henriquez Mendoza")
 
 st.markdown("""
-#Bienvenido
+🔆 Bienvenido 🔆
+
 Este proyecto incluye las siguientes páginas:""")
 st.header("EDA: Análisis Exploratorio de Datos")
 st.write("Este proyecto utilizó el conjunto de datos *Student Depression Dataset* en donde el objetivo es poder analizar y relacionar patrones que existen en los hábitos de los estudiantes")
 col1, col2= st.columns([2,2])
 with col1:
     st.markdown('<div class="column">', unsafe_allow_html=True)
-    st.image("utils/tabla.png", width=250)
+    st.image("utils/tabla.png", width=350)
     st.markdown('</div>', unsafe_allow_html=True)
 
 with col2:
@@ -29,7 +30,7 @@ Notamos que hay una columna con valores faltantes (Financial Stress) que tiene 2
 col3, col4= st.columns([2,2])
 with col3:
     st.markdown('<div class="column">', unsafe_allow_html=True)
-    st.image("utils/Dep.jpg", width=250)
+    st.image("utils/Dep.jpg", width=350)
     st.markdown('</div>', unsafe_allow_html=True)
 
 with col4:
