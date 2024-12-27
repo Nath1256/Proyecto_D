@@ -4,14 +4,15 @@ import os
 st.set_page_config(page_title="análisis_depresión")
 layout="wide"
 st.title("Proyecto Final")
-st.write("Integrantes:")
+st.write("integrantes:")
+st.write("")
 st.write("Saúl Eduardo Andino Quijada")
 st.write("Natalia Sofía Coto Mendoza")
 st.write("Helen Esmeralda Gil Alvarez")
 st.write("Julia Beatriz Henriquez Mendoza")
 
 st.markdown("""
-#Bienvenidos,
+#Bienvenido
 Este proyecto incluye las siguientes páginas:""")
 st.header("EDA: Análisis Exploratorio de Datos")
 st.write("Este proyecto utilizó el conjunto de datos *Student Depression Dataset* en donde el objetivo es poder analizar y relacionar patrones que existen en los hábitos de los estudiantes")
