@@ -4,13 +4,19 @@ import os
 st.set_page_config(page_title="análisis_depresión")
 layout="wide"
 st.title("Proyecto Final")
-st.write("""integrantes: 
-Saúl Eduardo Andino Quijada
-Natalia Sofía Coto Mendoza
-Helen Esmeralda Gil Alvarez
-Julia Beatriz Henriquez Mendoza""")
-St.markdown("""
-Bienvenido
+st.write("integrantes:")
+st.write("")
+st.write("Saúl Eduardo Andino Quijada")
+st.write("")
+st.write("Natalia Sofía Coto Mendoza")
+st.write("")
+st.write("Helen Esmeralda Gil Alvarez")
+st.write("")
+st.write("Julia Beatriz Henriquez Mendoza")
+st.write("")
+
+st.markdown("""
+#Bienvenido
 Este proyecto incluye las siguientes páginas:""")
 st.header("EDA: Análisis Exploratorio de Datos")
 st.write("Este proyecto utilizó el conjunto de datos *Student Depression Dataset* en donde el objetivo es poder analizar y relacionar patrones que existen en los hábitos de los estudiantes")
@@ -21,7 +27,7 @@ with col1:
     st.markdown('</div>', unsafe_allow_html=True)
 
 with col2:
-    St.markdown("""Este dataset cuenta con 27,901 filas y 18 columnas.
+    st.markdown("""Este dataset cuenta con 27,901 filas y 18 columnas.
 Algunas columnas son cuantitativas (por ejemplo, CGPA, Work/Study Hours), y otras son cualitativas (por ejemplo, Gender, City).
 Notamos que hay una columna con valores faltantes (Financial Stress) que tiene 27,898 valores no nulos, lo que indica 3 valores faltantes.""")
 
@@ -37,14 +43,14 @@ with col4:
     utilizamos las siguientes hipotesis para crear las gráficas:""")
     
     
-st.write("""Los estudiantes de genero masculino tienen mayores probabilidades de estar deprimidos.
+st.write("""#Los estudiantes de genero masculino tienen mayores probabilidades de estar deprimidos.
 
-Los estudiantes con buenos hábitos alimenticios tienen menos probabilidades de estar deprimidos.
+#Los estudiantes con buenos hábitos alimenticios tienen menos probabilidades de estar deprimidos.
 
-Los estudiantes con mejor desempeño académico (CGPA) tienen menos probabilidades de estar deprimidos.
+#Los estudiantes con mejor desempeño académico (CGPA) tienen menos probabilidades de estar deprimidos.
 
-Los estudiantes que estudian más horas a la semana tienen menos probabilidades de estar deprimidos.
+#Los estudiantes que estudian más horas a la semana tienen menos probabilidades de estar deprimidos.
 
-Los estudiantes con patrones de sueño irregulares tienen mayores probabilidades de estar deprimidos.""")
+#Los estudiantes con patrones de sueño irregulares tienen mayores probabilidades de estar deprimidos.""")
 
 
