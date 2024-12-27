@@ -1,7 +1,7 @@
 import streamlit as st
 import os
 
-st.set_page_config(page_tittle="análisis_depresión")
+st.set_page_config(page_title="análisis_depresión")
 layout="wide"
 st.title("Proyecto Final")
 st.write("""integrantes: 
