@@ -1,7 +1,0 @@
-streamlit
-pandas
-plotly
-skicit-learn
-os-sys
-kagglehub
-matplotlib.pyplot
