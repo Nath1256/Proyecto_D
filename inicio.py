@@ -1,7 +1,8 @@
 import streamlit as st
 import os
 
-st.set_page_config(layout="wide", page_tittle="análisis_depresión")
+st.set_page_config(page_tittle="análisis_depresión")
+layout="wide"
 st.title("Proyecto Final")
 st.write("""integrantes: 
 Saúl Eduardo Andino Quijada
