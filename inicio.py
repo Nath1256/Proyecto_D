@@ -50,4 +50,7 @@ st.write("""1.Los estudiantes de genero masculino tienen mayores probabilidades 
 
 5.Los estudiantes con patrones de sueño irregulares tienen mayores probabilidades de estar deprimidos.""")
 
+st.title("Modelos")
+st.write("lalalal")
+
 
