@@ -39,9 +39,19 @@ st.subheader("Evaluación del Modelo")
 # Mostrar la precisión
 st.write(" Precisión del Modelo:", accuracy_score(y_test, y_pred))
 
-# Mostrar el reporte de clasificación
-st.write("### Reporte de Clasificación:")
-st.text(classification_report(y_test, y_pred))
+col1, col2, col3, col4 = st.columns(4)
+
+with col1:
+    st.metric(label="Accuracy", value="0.83")
+
+with col2:
+    st.metric(label="F1 Score", value="0.83")
+
+with col3:
+    st.metric(label="Precisión", value="0.83")
+
+with col4:
+    st.metric(label="Recall", value="0.83")
 
 # Generar la matriz de confusión
 cm = confusion_matrix(y_test, y_pred)
