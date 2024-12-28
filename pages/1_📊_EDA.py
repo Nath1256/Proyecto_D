@@ -107,3 +107,4 @@ El análisis de los datos revela varias relaciones interesantes entre las variab
 3. **Desempeño Académico (CGPA)**: No se observa una relación clara entre el CGPA y la depresión, lo que indica que el rendimiento académico por sí solo no es un predictor claro de la depresión.
 4. **Horas de Estudio**: Los estudiantes deprimidos parecen estar dedicando más tiempo al estudio, lo que podría estar relacionado con el estrés.
 5. **Sueño Irregular**: Los estudiantes con menos de 5 horas de sueño tienen una mayor probabilidad de estar deprimidos, lo que sugiere que el sueño irregular es un factor de riesgo significativo para la depresión.
+""")
