@@ -31,21 +31,6 @@ st.markdown("""
         margin-top: 20px;
         margin-bottom: 40px;
     }
-    .section {
-        margin-bottom: 40px;
-    }
-    .graph-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 20px;
-    }
-    .graph-text {
-        text-align: center;
-        font-size: 18px;
-        margin-top: 10px;
-        color: #333;
-    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -66,11 +51,11 @@ total_gender_counts = df['Gender'].value_counts()
 gender_percentages = (gender_counts / total_gender_counts) * 100
 
 # Crear el gráfico
-fig, ax = plt.subplots(figsize=(5, 4))
+fig, ax = plt.subplots(figsize=(6, 5))
 gender_percentages.plot(kind='bar', color=['blue', 'pink'], alpha=0.7, ax=ax)
-ax.set_title('Porcentaje de Estudiantes Deprimidos por Género', fontsize=12)
-ax.set_ylabel('Porcentaje (%)', fontsize=10)
-ax.set_xlabel('Género', fontsize=10)
+ax.set_title('Porcentaje de Estudiantes Deprimidos por Género', fontsize=14)
+ax.set_ylabel('Porcentaje (%)', fontsize=12)
+ax.set_xlabel('Género', fontsize=12)
 ax.set_xticklabels(ax.get_xticklabels(), rotation=0)
 for i, percentage in enumerate(gender_percentages):
     ax.text(i, percentage + 0.5, f'{percentage:.2f}%', ha='center', fontsize=10)
@@ -119,11 +104,11 @@ porcentaje_Udepressed = contador_SU_depressed / total_studentU * 100
 dh = ['Healthy', 'Moderate', 'Unhealthy']
 percentages_notdepressed = [Porcentaje_Hnotdepressed, porcentaje_mnotdepressed, porcentaje_Unotdepressed]
 
-fig, ax = plt.subplots(figsize=(5, 4))
+fig, ax = plt.subplots(figsize=(6, 5))
 ax.bar(dh, percentages_notdepressed, color=['green', 'orange', 'red'])
-ax.set_title('Estudiantes sin depresión', fontsize=12)
-ax.set_xlabel('Hábitos Alimenticios', fontsize=10)
-ax.set_ylabel('Porcentaje sin depresión (%)', fontsize=10)
+ax.set_title('Estudiantes sin depresión', fontsize=14)
+ax.set_xlabel('Hábitos Alimenticios', fontsize=12)
+ax.set_ylabel('Porcentaje sin depresión (%)', fontsize=12)
 for i, v in enumerate(percentages_notdepressed):
     ax.text(i, v + 1, f'{v:.2f}%', ha='center', fontsize=10)
 
@@ -132,11 +117,11 @@ st.pyplot(fig, use_container_width=True)
 # Graficar Estudiantes con Depresión
 percentages_depressed = [Porcentaje_Hdepressed, porcentaje_mdepressed, porcentaje_Udepressed]
 
-fig, ax = plt.subplots(figsize=(5, 4))
+fig, ax = plt.subplots(figsize=(6, 5))
 ax.bar(dh, percentages_depressed, color=['green', 'orange', 'red'])
-ax.set_title('Estudiantes con depresión', fontsize=12)
-ax.set_xlabel('Hábitos Alimenticios', fontsize=10)
-ax.set_ylabel('Porcentaje de estudiantes deprimidos (%)', fontsize=10)
+ax.set_title('Estudiantes con depresión', fontsize=14)
+ax.set_xlabel('Hábitos Alimenticios', fontsize=12)
+ax.set_ylabel('Porcentaje de estudiantes deprimidos (%)', fontsize=12)
 for i, v in enumerate(percentages_depressed):
     ax.text(i, v + 1, f'{v:.2f}%', ha='center', fontsize=10)
 
@@ -153,15 +138,15 @@ st.markdown("**Hipótesis:** Los estudiantes con mejor desempeño académico (CG
 promedio_cgpa_por_depresion = df.groupby('Depression')['CGPA'].mean()
 porcentajes_cgpa = (promedio_cgpa_por_depresion / promedio_cgpa_por_depresion.sum()) * 100
 
-fig, ax = plt.subplots(figsize=(5, 4))
+fig, ax = plt.subplots(figsize=(6, 5))
 porcentajes_cgpa.plot(kind='bar', color=['green', 'red'], alpha=0.7, ax=ax)
-ax.set_title('Porcentaje de CGPA por Estado de Depresión', fontsize=12)
-ax.set_xlabel('Estado de Depresión', fontsize=10)
-ax.set_ylabel('Porcentaje del Promedio de CGPA (%)', fontsize=10)
+ax.set_title('Porcentaje de CGPA por Estado de Depresión', fontsize=14)
+ax.set_xlabel('Estado de Depresión', fontsize=12)
+ax.set_ylabel('Porcentaje del Promedio de CGPA (%)', fontsize=12)
 ax.set_xticklabels(['No Deprimidos', 'Deprimidos'], rotation=0)
 ax.set_ylim(0, porcentajes_cgpa.max() + 10)
 for index, value in enumerate(porcentajes_cgpa):
-    ax.text(index, value + 1, f'{value:.2f}%', ha='center', fontsize=10)
+    ax.text(index, value + 1, f'{value:.2f}%', ha='center', fontsize=12)
 
 st.pyplot(fig, use_container_width=True)
 
@@ -176,14 +161,14 @@ st.markdown("**Hipótesis:** Los estudiantes que estudian más horas a la semana
 promedio_Work_Study_Hours_por_depresion = df.groupby('Depression')['Work/Study Hours'].mean()
 porcentajes_Work_Study_Hours = (promedio_Work_Study_Hours_por_depresion / promedio_Work_Study_Hours_por_depresion.sum()) * 100
 
-fig, ax = plt.subplots(figsize=(5, 4))
+fig, ax = plt.subplots(figsize=(6, 5))
 porcentajes_Work_Study_Hours.plot(kind='bar', color=['blue', 'purple'], alpha=0.7, ax=ax)
-ax.set_title('Porcentaje de Work/Study Hours por Estado de Depresión', fontsize=12)
-ax.set_xlabel('Estado de Depresión', fontsize=10)
-ax.set_ylabel('Porcentaje del Total de Work/Study Hours (%)', fontsize=10)
+ax.set_title('Porcentaje de Work/Study Hours por Estado de Depresión', fontsize=14)
+ax.set_xlabel('Estado de Depresión', fontsize=12)
+ax.set_ylabel('Porcentaje del Total de Work/Study Hours (%)', fontsize=12)
 ax.set_xticklabels(['No Deprimidos', 'Deprimidos'], rotation=0)
 for index, value in enumerate(porcentajes_Work_Study_Hours):
-    ax.text(index, value + 1, f'{value:.2f}%', ha='center', fontsize=10)
+    ax.text(index, value + 1, f'{value:.2f}%', ha='center', fontsize=12)
 ax.set_ylim(0, porcentajes_Work_Study_Hours.max() + 10)
 
 st.pyplot(fig, use_container_width=True)
@@ -202,7 +187,7 @@ irregular_sleep = df[df['Sleep Duration'] == 'Less than 5 hours']
 depression_counts = irregular_sleep['Depression'].value_counts()
 
 # Crear el gráfico de pastel
-fig, ax = plt.subplots(figsize=(5, 4))
+fig, ax = plt.subplots(figsize=(6, 5))
 ax.pie(depression_counts, labels=['Deprimidos', 'No Deprimidos'], autopct='%1.1f%%', startangle=90, colors=['red', 'green'])
 ax.set_title('Porcentaje de Depresión en Estudiantes con Patrones de Sueño Irregulares')
 
