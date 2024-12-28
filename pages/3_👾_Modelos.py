@@ -25,11 +25,19 @@ y = df['Depression']  # Columna objetivo (0 o 1)
 # Dividir en conjunto de entrenamiento y prueba
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
-# Variables dinámicas
-accuracy = 0.83
-f1_score = 0.83
-precision = 0.83
-recall = 0.83
+# Entrenar el modelo Random Forest
+model = RandomForestClassifier(random_state=42)
+model.fit(X_train, y_train)
+
+# Realizar predicciones
+y_pred = model.predict(X_test)
+
+# Calcular métricas
+accuracy = accuracy_score(y_test, y_pred)
+report = classification_report(y_test, y_pred, output_dict=True)
+f1_score = report["weighted avg"]["f1-score"]
+precision = report["weighted avg"]["precision"]
+recall = report["weighted avg"]["recall"]
 
 # Estilo de las cajitas y del texto
 st.markdown("""
@@ -98,6 +106,7 @@ with col4:
     st.markdown('<div class="metric-label">Recall</div>', unsafe_allow_html=True)
     st.markdown(f'<div class="metric-value">{recall:.2f}</div>', unsafe_allow_html=True)
     st.markdown('</div>', unsafe_allow_html=True)
+
 # Generar la matriz de confusión
 cm = confusion_matrix(y_test, y_pred)
 
@@ -109,5 +118,3 @@ plt.title("Matriz de Confusión")
 
 # Mostrar la matriz de confusión en Streamlit
 st.pyplot(plt)
-
-
