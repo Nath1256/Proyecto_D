@@ -39,6 +39,27 @@ st.subheader("Evaluación del Modelo")
 # Mostrar la precisión
 st.write(" Precisión del Modelo:", accuracy_score(y_test, y_pred))
 
+# Estilo de contenedor para las métricas
+st.markdown("""
+<style>
+    .metric-container {
+        border: 2px solid #2a2a2a;
+        border-radius: 10px;
+        padding: 10px;
+        margin: 10px;
+        background-color: #1e1e1e;
+    }
+</style>
+""", unsafe_allow_html=True)
+
+# Encabezado de métricas
+st.title("Evaluación del Modelo")
+
+# Contenedor personalizado
+with st.container():
+    st.markdown('<div class="metric-container">', unsafe_allow_html=True)
+
+    # Métricas
 col1, col2, col3, col4 = st.columns(4)
 
 with col1:
@@ -52,6 +73,7 @@ with col3:
 
 with col4:
     st.metric(label="Recall", value="0.83")
+    st.markdown('</div>', unsafe_allow_html=True)
 
 # Generar la matriz de confusión
 cm = confusion_matrix(y_test, y_pred)
