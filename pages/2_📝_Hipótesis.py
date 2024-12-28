@@ -8,9 +8,34 @@ df = pd.read_csv('data/Student Depression Dataset.csv')
 # Título principal de la aplicación
 st.title("Análisis de Depresión Estudiantil")
 
+# Estilo personalizado para mejorar la apariencia
+st.markdown("""
+<style>
+    .header {
+        color: #4CAF50;
+        text-align: center;
+        font-size: 30px;
+        margin-top: 30px;
+    }
+    .subheader {
+        color: #333;
+        font-size: 24px;
+        margin-top: 20px;
+    }
+    .conclusion {
+        font-size: 16px;
+        margin-top: 20px;
+        color: #555;
+    }
+    .graph {
+        margin-top: 20px;
+        margin-bottom: 40px;
+    }
+</style>
+""", unsafe_allow_html=True)
+
 # Hipótesis 1 - Gráfica de Género
 st.subheader("Hipótesis 1: Género y Depresión")
-# Mostrar la hipótesis antes del gráfico
 st.markdown("**Hipótesis:** Los estudiantes de género masculino tienen mayores probabilidades de estar deprimidos.")
 
 # Filtrar los estudiantes deprimidos
@@ -26,25 +51,22 @@ total_gender_counts = df['Gender'].value_counts()
 gender_percentages = (gender_counts / total_gender_counts) * 100
 
 # Crear el gráfico
-ax = gender_percentages.plot(kind='bar', color=['blue', 'pink'], alpha=0.7)
-plt.title('Porcentaje de Estudiantes Deprimidos por Género')
-plt.ylabel('Porcentaje (%)')
-plt.xlabel('Género')
-plt.xticks(rotation=0)
-
-# Agregar los valores de porcentaje encima de las barras
+fig, ax = plt.subplots(figsize=(6, 5))
+gender_percentages.plot(kind='bar', color=['blue', 'pink'], alpha=0.7, ax=ax)
+ax.set_title('Porcentaje de Estudiantes Deprimidos por Género', fontsize=14)
+ax.set_ylabel('Porcentaje (%)', fontsize=12)
+ax.set_xlabel('Género', fontsize=12)
+ax.set_xticklabels(ax.get_xticklabels(), rotation=0)
 for i, percentage in enumerate(gender_percentages):
-    plt.text(i, percentage + 0.5, f'{percentage:.2f}%', ha='center', fontsize=10)
+    ax.text(i, percentage + 0.5, f'{percentage:.2f}%', ha='center', fontsize=10)
 
-# Mostrar la gráfica en Streamlit
-st.pyplot(plt)
+st.pyplot(fig, use_container_width=True)
 
 # **Conclusión** para Hipótesis 1
-st.markdown("**Conclusión:** Los datos muestran que hay una mayor cantidad de hombres deprimidos en comparación con las mujeres. Sin embargo, al calcular la proporción, las diferencias de género no parecen ser tan significativas, lo que sugiere que ambos géneros enfrentan riesgos similares de depresión.")
+st.markdown("<div class='conclusion'>**Conclusión:** Los datos muestran que hay una mayor cantidad de hombres deprimidos en comparación con las mujeres. Sin embargo, al calcular la proporción, las diferencias de género no parecen ser tan significativas, lo que sugiere que ambos géneros enfrentan riesgos similares de depresión.</div>", unsafe_allow_html=True)
 
 # Hipótesis 2 - Hábitos Alimenticios y Depresión
 st.subheader("Hipótesis 2: Hábitos Alimenticios y Depresión")
-# Mostrar la hipótesis antes del gráfico
 st.markdown("**Hipótesis:** Los estudiantes con buenos hábitos alimenticios tienen menos probabilidades de estar deprimidos.")
 
 # Filtrar estudiantes con diferentes hábitos alimenticios
@@ -82,90 +104,80 @@ porcentaje_Udepressed = contador_SU_depressed / total_studentU * 100
 dh = ['Healthy', 'Moderate', 'Unhealthy']
 percentages_notdepressed = [Porcentaje_Hnotdepressed, porcentaje_mnotdepressed, porcentaje_Unotdepressed]
 
-plt.figure(figsize=(7, 6))
-plt.bar(dh, percentages_notdepressed, color=['green', 'orange', 'red'])
-
-plt.title('Estudiantes sin depresión', fontsize=10)
-plt.xlabel('Hábitos Alimenticios', fontsize=10)
-plt.ylabel('Porcentaje sin depresión (%)', fontsize=10)
-
+fig, ax = plt.subplots(figsize=(6, 5))
+ax.bar(dh, percentages_notdepressed, color=['green', 'orange', 'red'])
+ax.set_title('Estudiantes sin depresión', fontsize=14)
+ax.set_xlabel('Hábitos Alimenticios', fontsize=12)
+ax.set_ylabel('Porcentaje sin depresión (%)', fontsize=12)
 for i, v in enumerate(percentages_notdepressed):
-    plt.text(i, v + 1, f'{v:.2f}%', ha='center', fontsize=10)
+    ax.text(i, v + 1, f'{v:.2f}%', ha='center', fontsize=10)
 
-st.pyplot(plt)
+st.pyplot(fig, use_container_width=True)
 
 # Graficar Estudiantes con Depresión
 percentages_depressed = [Porcentaje_Hdepressed, porcentaje_mdepressed, porcentaje_Udepressed]
 
-plt.figure(figsize=(7, 6))
-plt.bar(dh, percentages_depressed, color=['green', 'orange', 'red'])
-
-plt.title('Estudiantes con depresión', fontsize=10)
-plt.xlabel('Hábitos Alimenticios', fontsize=10)
-plt.ylabel('Porcentaje de estudiantes deprimidos (%)', fontsize=10)
-
+fig, ax = plt.subplots(figsize=(6, 5))
+ax.bar(dh, percentages_depressed, color=['green', 'orange', 'red'])
+ax.set_title('Estudiantes con depresión', fontsize=14)
+ax.set_xlabel('Hábitos Alimenticios', fontsize=12)
+ax.set_ylabel('Porcentaje de estudiantes deprimidos (%)', fontsize=12)
 for i, v in enumerate(percentages_depressed):
-    plt.text(i, v + 1, f'{v:.2f}%', ha='center', fontsize=10)
+    ax.text(i, v + 1, f'{v:.2f}%', ha='center', fontsize=10)
 
-st.pyplot(plt)
+st.pyplot(fig, use_container_width=True)
 
 # **Conclusión** para Hipótesis 2
-st.markdown("**Conclusión:** Los estudiantes con hábitos alimenticios saludables tienen el mayor porcentaje de no depresión (54.61%), mientras que aquellos con hábitos moderados y no saludables muestran porcentajes significativamente más bajos. Esto respalda la hipótesis de que una dieta equilibrada podría contribuir a un menor riesgo de depresión.")
+st.markdown("<div class='conclusion'>**Conclusión:** Los estudiantes con hábitos alimenticios saludables tienen el mayor porcentaje de no depresión (54.61%), mientras que aquellos con hábitos moderados y no saludables muestran porcentajes significativamente más bajos. Esto respalda la hipótesis de que una dieta equilibrada podría contribuir a un menor riesgo de depresión.</div>", unsafe_allow_html=True)
 
 # Hipótesis 3 - CGPA y Depresión
 st.subheader("Hipótesis 3: CGPA y Depresión")
-# Mostrar la hipótesis antes del gráfico
 st.markdown("**Hipótesis:** Los estudiantes con mejor desempeño académico (CGPA) tienen menos probabilidades de estar deprimidos.")
 
 # Graficar Promedio de CGPA por Estado de Depresión
 promedio_cgpa_por_depresion = df.groupby('Depression')['CGPA'].mean()
 porcentajes_cgpa = (promedio_cgpa_por_depresion / promedio_cgpa_por_depresion.sum()) * 100
 
-plt.figure(figsize=(8, 6))
-porcentajes_cgpa.plot(kind='bar', color=['green', 'red'], alpha=0.7)
-plt.title('Porcentaje de CGPA por Estado de Depresión', fontsize=14)
-plt.xlabel('Estado de Depresión (0 = No, 1 = Sí)', fontsize=12)
-plt.ylabel('Porcentaje del Promedio de CGPA (%)', fontsize=12)
-plt.xticks(ticks=[0, 1], labels=['No Deprimidos', 'Deprimidos'], rotation=0)
-plt.ylim(0, porcentajes_cgpa.max() + 10)
-
+fig, ax = plt.subplots(figsize=(6, 5))
+porcentajes_cgpa.plot(kind='bar', color=['green', 'red'], alpha=0.7, ax=ax)
+ax.set_title('Porcentaje de CGPA por Estado de Depresión', fontsize=14)
+ax.set_xlabel('Estado de Depresión', fontsize=12)
+ax.set_ylabel('Porcentaje del Promedio de CGPA (%)', fontsize=12)
+ax.set_xticklabels(['No Deprimidos', 'Deprimidos'], rotation=0)
+ax.set_ylim(0, porcentajes_cgpa.max() + 10)
 for index, value in enumerate(porcentajes_cgpa):
-    plt.text(index, value + 1, f'{value:.2f}%', ha='center', fontsize=12)
+    ax.text(index, value + 1, f'{value:.2f}%', ha='center', fontsize=12)
 
-st.pyplot(plt)
+st.pyplot(fig, use_container_width=True)
 
 # **Conclusión** para Hipótesis 3
-st.markdown("**Conclusión:** El análisis revela que los estudiantes deprimidos tienen un porcentaje de promedio académico (CGPA) ligeramente superior (50.22%) al de los no deprimidos (49.78%). Esto sugiere que el desempeño académico por sí solo no es un predictor claro de depresión, y puede haber otros factores en juego, como el estrés asociado al rendimiento académico.")
+st.markdown("<div class='conclusion'>**Conclusión:** El análisis revela que los estudiantes deprimidos tienen un porcentaje de promedio académico (CGPA) ligeramente superior (50.22%) al de los no deprimidos (49.78%). Esto sugiere que el desempeño académico por sí solo no es un predictor claro de depresión, y puede haber otros factores en juego, como el estrés asociado al rendimiento académico.</div>", unsafe_allow_html=True)
 
 # Hipótesis 4 - Horas de Estudio y Depresión
 st.subheader("Hipótesis 4: Horas de Estudio y Depresión")
-# Mostrar la hipótesis antes del gráfico
 st.markdown("**Hipótesis:** Los estudiantes que estudian más horas a la semana tienen menos probabilidades de estar deprimidos.")
 
 # Graficar Promedio de Work/Study Hours por Estado de Depresión
 promedio_Work_Study_Hours_por_depresion = df.groupby('Depression')['Work/Study Hours'].mean()
 porcentajes_Work_Study_Hours = (promedio_Work_Study_Hours_por_depresion / promedio_Work_Study_Hours_por_depresion.sum()) * 100
 
-plt.figure(figsize=(8, 6))
-porcentajes_Work_Study_Hours.plot(kind='bar', color=['blue', 'purple'], alpha=0.7)
-plt.title('Porcentaje de Work/Study Hours por Estado de Depresión', fontsize=14)
-plt.xlabel('Estado de Depresión', fontsize=12)
-plt.ylabel('Porcentaje del Total de Work/Study Hours (%)', fontsize=12)
-plt.xticks(ticks=[0, 1], labels=['No Deprimidos', 'Deprimidos'], rotation=0)
-
+fig, ax = plt.subplots(figsize=(6, 5))
+porcentajes_Work_Study_Hours.plot(kind='bar', color=['blue', 'purple'], alpha=0.7, ax=ax)
+ax.set_title('Porcentaje de Work/Study Hours por Estado de Depresión', fontsize=14)
+ax.set_xlabel('Estado de Depresión', fontsize=12)
+ax.set_ylabel('Porcentaje del Total de Work/Study Hours (%)', fontsize=12)
+ax.set_xticklabels(['No Deprimidos', 'Deprimidos'], rotation=0)
 for index, value in enumerate(porcentajes_Work_Study_Hours):
-    plt.text(index, value + 1, f'{value:.2f}%', ha='center', fontsize=12)
+    ax.text(index, value + 1, f'{value:.2f}%', ha='center', fontsize=12)
+ax.set_ylim(0, porcentajes_Work_Study_Hours.max() + 10)
 
-plt.ylim(0, porcentajes_Work_Study_Hours.max() + 10)
-
-st.pyplot(plt)
+st.pyplot(fig, use_container_width=True)
 
 # **Conclusión** para Hipótesis 4
-st.markdown("**Conclusión:** Los estudiantes deprimidos dedican un mayor porcentaje de tiempo (55.59%) a trabajar y estudiar en comparación con los no deprimidos (44.41%). Este resultado contradice la hipótesis inicial, indicando que estudiar más horas podría estar relacionado con un mayor nivel de estrés y un riesgo más alto de depresión.")
+st.markdown("<div class='conclusion'>**Conclusión:** Los estudiantes deprimidos dedican un mayor porcentaje de tiempo (55.59%) a trabajar y estudiar en comparación con los no deprimidos (44.41%). Este resultado contradice la hipótesis inicial, indicando que estudiar más horas podría estar relacionado con un mayor nivel de estrés y un riesgo más alto de depresión.</div>", unsafe_allow_html=True)
 
 # Hipótesis 5 - Patrones de Sueño y Depresión
 st.subheader("Hipótesis 5: Patrones de Sueño y Depresión")
-# Mostrar la hipótesis antes del gráfico
 st.markdown("**Hipótesis:** Los estudiantes con patrones de sueño irregulares tienen mayores probabilidades de estar deprimidos.")
 
 # Filtrar estudiantes con menos de 5 horas de sueño
@@ -175,15 +187,11 @@ irregular_sleep = df[df['Sleep Duration'] == 'Less than 5 hours']
 depression_counts = irregular_sleep['Depression'].value_counts()
 
 # Crear el gráfico de pastel
-labels = ['Deprimidos', 'No Deprimidos']
-colors = ['red', 'green']
+fig, ax = plt.subplots(figsize=(6, 5))
+ax.pie(depression_counts, labels=['Deprimidos', 'No Deprimidos'], autopct='%1.1f%%', startangle=90, colors=['red', 'green'])
+ax.set_title('Porcentaje de Depresión en Estudiantes con Patrones de Sueño Irregulares')
 
-plt.figure(figsize=(8, 6))
-plt.pie(depression_counts, labels=labels, autopct='%1.1f%%', startangle=90, colors=colors)
-plt.title('Porcentaje de Depresión en Estudiantes con Patrones de Sueño Irregulares')
-plt.axis('equal')  # Para asegurar que el gráfico sea circular
-
-st.pyplot(plt)
+st.pyplot(fig, use_container_width=True)
 
 # **Conclusión** para Hipótesis 5
-st.markdown("**Conclusión:** Los datos muestran que los estudiantes deprimidos tienden a tener patrones de sueño menos regulares en comparación con los no deprimidos. Esto apoya la hipótesis de que los patrones de sueño irregulares pueden ser un factor de riesgo para la depresión.")
+st.markdown("<div class='conclusion'>**Conclusión:** Los datos muestran que los estudiantes deprimidos tienden a tener patrones de sueño menos regulares en comparación con los no deprimidos. Esto apoya la hipótesis de que los patrones de sueño irregulares pueden ser un factor de riesgo para la depresión.</div>", unsafe_allow_html=True)
