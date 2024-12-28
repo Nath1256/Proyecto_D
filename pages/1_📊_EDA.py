@@ -58,15 +58,17 @@ st.pyplot(fig)
 # 5. Correlación entre variables numéricas
 st.subheader("Matriz de Correlación entre Variables Numéricas")
 
-# Convert non-numeric columns to NaN (if any) and select only numeric columns
-df_numeric = df.apply(pd.to_numeric, errors='coerce')  # Convert to numeric, coerce errors to NaN
+# Asegurarse de que solo se seleccionen columnas numéricas
+df_numeric = df.select_dtypes(include=['float64', 'int64'])
 
-# Fill missing values with the mean of each column
+# Rellenar los valores nulos con la media de cada columna
 df_numeric = df_numeric.fillna(df_numeric.mean())
 
-# Calculate correlation on numeric columns
-fig, ax = plt.subplots()
+# Calcular la matriz de correlación
 corr = df_numeric.corr()
+
+# Graficar la matriz de correlación
+fig, ax = plt.subplots(figsize=(10, 8))  # Ajustar tamaño de la figura si es necesario
 sns.heatmap(corr, annot=True, cmap='coolwarm', vmin=-1, vmax=1, ax=ax)
 st.pyplot(fig)
 
