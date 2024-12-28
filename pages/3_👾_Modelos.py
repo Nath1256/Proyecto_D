@@ -39,6 +39,12 @@ f1_score = report["weighted avg"]["f1-score"]
 precision = report["weighted avg"]["precision"]
 recall = report["weighted avg"]["recall"]
 
+# Variables dinámicas
+accuracy = 0.83
+f1_score = 0.83
+precision = 0.83
+recall = 0.83
+
 # Estilo de las cajitas y del texto
 st.markdown("""
 <style>
@@ -83,24 +89,28 @@ st.markdown('<div class="title-small">Reporte de Clasificación</div>', unsafe_a
 # Métricas encerradas en cajitas individuales
 col1, col2, col3, col4 = st.columns(4)
 
+# Cajita 1: Accuracy
 with col1:
     st.markdown('<div class="box">', unsafe_allow_html=True)
     st.markdown('<div class="metric-label">Accuracy</div>', unsafe_allow_html=True)
     st.markdown(f'<div class="metric-value">{accuracy:.2f}</div>', unsafe_allow_html=True)
     st.markdown('</div>', unsafe_allow_html=True)
 
+# Cajita 2: F1 Score
 with col2:
     st.markdown('<div class="box">', unsafe_allow_html=True)
     st.markdown('<div class="metric-label">F1 Score</div>', unsafe_allow_html=True)
     st.markdown(f'<div class="metric-value">{f1_score:.2f}</div>', unsafe_allow_html=True)
     st.markdown('</div>', unsafe_allow_html=True)
 
+# Cajita 3: Precision
 with col3:
     st.markdown('<div class="box">', unsafe_allow_html=True)
     st.markdown('<div class="metric-label">Precision</div>', unsafe_allow_html=True)
     st.markdown(f'<div class="metric-value">{precision:.2f}</div>', unsafe_allow_html=True)
     st.markdown('</div>', unsafe_allow_html=True)
 
+# Cajita 4: Recall
 with col4:
     st.markdown('<div class="box">', unsafe_allow_html=True)
     st.markdown('<div class="metric-label">Recall</div>', unsafe_allow_html=True)
