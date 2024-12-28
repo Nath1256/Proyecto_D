@@ -10,6 +10,9 @@ st.title("Análisis de Depresión Estudiantil")
 
 # Hipótesis 1 - Gráfica de Género
 st.subheader("Hipótesis 1: Género y Depresión")
+# Mostrar la hipótesis antes del gráfico
+st.markdown("**Hipótesis:** Los estudiantes de género masculino tienen mayores probabilidades de estar deprimidos.")
+
 # Filtrar los estudiantes deprimidos
 depressed_students = df[df['Depression'] == 1]
 
@@ -38,6 +41,9 @@ st.pyplot(plt)
 
 # Hipótesis 2 - Hábitos Alimenticios y Depresión
 st.subheader("Hipótesis 2: Hábitos Alimenticios y Depresión")
+# Mostrar la hipótesis antes del gráfico
+st.markdown("**Hipótesis:** Los estudiantes con buenos hábitos alimenticios tienen menos probabilidades de estar deprimidos.")
+
 # Filtrar estudiantes con diferentes hábitos alimenticios
 studentH_notdepressed = df[(df['Dietary Habits'] == 'Healthy') & (df['Depression'] == 0)]
 contador_SH_notdepressed = len(studentH_notdepressed)
@@ -102,6 +108,9 @@ st.pyplot(plt)
 
 # Hipótesis 3 - CGPA y Depresión
 st.subheader("Hipótesis 3: CGPA y Depresión")
+# Mostrar la hipótesis antes del gráfico
+st.markdown("**Hipótesis:** Los estudiantes con mejor desempeño académico (CGPA) tienen menos probabilidades de estar deprimidos.")
+
 # Graficar Promedio de CGPA por Estado de Depresión
 promedio_cgpa_por_depresion = df.groupby('Depression')['CGPA'].mean()
 porcentajes_cgpa = (promedio_cgpa_por_depresion / promedio_cgpa_por_depresion.sum()) * 100
@@ -121,6 +130,9 @@ st.pyplot(plt)
 
 # Hipótesis 4 - Horas de Estudio y Depresión
 st.subheader("Hipótesis 4: Horas de Estudio y Depresión")
+# Mostrar la hipótesis antes del gráfico
+st.markdown("**Hipótesis:** Los estudiantes que estudian más horas a la semana tienen menos probabilidades de estar deprimidos.")
+
 # Graficar Promedio de Work/Study Hours por Estado de Depresión
 promedio_Work_Study_Hours_por_depresion = df.groupby('Depression')['Work/Study Hours'].mean()
 porcentajes_Work_Study_Hours = (promedio_Work_Study_Hours_por_depresion / promedio_Work_Study_Hours_por_depresion.sum()) * 100
@@ -141,6 +153,9 @@ st.pyplot(plt)
 
 # Hipótesis 5 - Patrones de Sueño y Depresión
 st.subheader("Hipótesis 5: Patrones de Sueño y Depresión")
+# Mostrar la hipótesis antes del gráfico
+st.markdown("**Hipótesis:** Los estudiantes con patrones de sueño irregulares tienen mayores probabilidades de estar deprimidos.")
+
 # Filtrar estudiantes con menos de 5 horas de sueño
 irregular_sleep = df[df['Sleep Duration'] == 'Less than 5 hours']
 
