@@ -39,6 +39,9 @@ for i, percentage in enumerate(gender_percentages):
 # Mostrar la gráfica en Streamlit
 st.pyplot(plt)
 
+# **Conclusión** para Hipótesis 1
+st.markdown("**Conclusión:** Los datos muestran que hay una mayor cantidad de hombres deprimidos en comparación con las mujeres. Sin embargo, al calcular la proporción, las diferencias de género no parecen ser tan significativas, lo que sugiere que ambos géneros enfrentan riesgos similares de depresión.")
+
 # Hipótesis 2 - Hábitos Alimenticios y Depresión
 st.subheader("Hipótesis 2: Hábitos Alimenticios y Depresión")
 # Mostrar la hipótesis antes del gráfico
@@ -106,6 +109,9 @@ for i, v in enumerate(percentages_depressed):
 
 st.pyplot(plt)
 
+# **Conclusión** para Hipótesis 2
+st.markdown("**Conclusión:** Los estudiantes con hábitos alimenticios saludables tienen el mayor porcentaje de no depresión (54.61%), mientras que aquellos con hábitos moderados y no saludables muestran porcentajes significativamente más bajos. Esto respalda la hipótesis de que una dieta equilibrada podría contribuir a un menor riesgo de depresión.")
+
 # Hipótesis 3 - CGPA y Depresión
 st.subheader("Hipótesis 3: CGPA y Depresión")
 # Mostrar la hipótesis antes del gráfico
@@ -127,6 +133,9 @@ for index, value in enumerate(porcentajes_cgpa):
     plt.text(index, value + 1, f'{value:.2f}%', ha='center', fontsize=12)
 
 st.pyplot(plt)
+
+# **Conclusión** para Hipótesis 3
+st.markdown("**Conclusión:** El análisis revela que los estudiantes deprimidos tienen un porcentaje de promedio académico (CGPA) ligeramente superior (50.22%) al de los no deprimidos (49.78%). Esto sugiere que el desempeño académico por sí solo no es un predictor claro de depresión, y puede haber otros factores en juego, como el estrés asociado al rendimiento académico.")
 
 # Hipótesis 4 - Horas de Estudio y Depresión
 st.subheader("Hipótesis 4: Horas de Estudio y Depresión")
@@ -151,6 +160,9 @@ plt.ylim(0, porcentajes_Work_Study_Hours.max() + 10)
 
 st.pyplot(plt)
 
+# **Conclusión** para Hipótesis 4
+st.markdown("**Conclusión:** Los estudiantes deprimidos dedican un mayor porcentaje de tiempo (55.59%) a trabajar y estudiar en comparación con los no deprimidos (44.41%). Este resultado contradice la hipótesis inicial, indicando que estudiar más horas podría estar relacionado con un mayor nivel de estrés y un riesgo más alto de depresión.")
+
 # Hipótesis 5 - Patrones de Sueño y Depresión
 st.subheader("Hipótesis 5: Patrones de Sueño y Depresión")
 # Mostrar la hipótesis antes del gráfico
@@ -172,3 +184,6 @@ plt.title('Porcentaje de Depresión en Estudiantes con Patrones de Sueño Irregu
 plt.axis('equal')  # Para asegurar que el gráfico sea circular
 
 st.pyplot(plt)
+
+# **Conclusión** para Hipótesis 5
+st.markdown("**Conclusión:** Los datos muestran que los estudiantes deprimidos tienden a tener patrones de sueño menos regulares en comparación con los no deprimidos. Esto apoya la hipótesis de que los patrones de sueño irregulares pueden ser un factor de riesgo para la depresión.")
