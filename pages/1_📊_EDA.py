@@ -24,63 +24,73 @@ st.subheader("Distribución de Variables Numéricas")
 
 # Histograma de CGPA
 st.write("Distribución de CGPA")
-st.write(df['CGPA'].hist())
-st.pyplot()
+fig, ax = plt.subplots()
+ax.hist(df['CGPA'])
+st.pyplot(fig)
 
 # Histograma de Work/Study Hours
 st.write("Distribución de Horas de Estudio")
-st.write(df['Work/Study Hours'].hist())
-st.pyplot()
+fig, ax = plt.subplots()
+ax.hist(df['Work/Study Hours'])
+st.pyplot(fig)
 
 # 4. Distribución de variables categóricas
 st.subheader("Distribución de Variables Categóricas")
 
 # Gráfico de barras de Género
 st.write("Distribución de Género")
-st.write(df['Gender'].value_counts().plot(kind='bar'))
-st.pyplot()
+fig, ax = plt.subplots()
+df['Gender'].value_counts().plot(kind='bar', ax=ax)
+st.pyplot(fig)
 
 # Gráfico de barras de Hábitos Alimenticios
 st.write("Distribución de Hábitos Alimenticios")
-st.write(df['Dietary Habits'].value_counts().plot(kind='bar'))
-st.pyplot()
+fig, ax = plt.subplots()
+df['Dietary Habits'].value_counts().plot(kind='bar', ax=ax)
+st.pyplot(fig)
 
 # Gráfico de barras de Estado de Depresión
 st.write("Distribución de Estado de Depresión")
-st.write(df['Depression'].value_counts().plot(kind='bar'))
-st.pyplot()
+fig, ax = plt.subplots()
+df['Depression'].value_counts().plot(kind='bar', ax=ax)
+st.pyplot(fig)
 
 # 5. Correlación entre variables numéricas
 st.subheader("Matriz de Correlación entre Variables Numéricas")
+fig, ax = plt.subplots()
 corr = df.corr()
-st.write(sns.heatmap(corr, annot=True, cmap='coolwarm', vmin=-1, vmax=1))
-st.pyplot()
+sns.heatmap(corr, annot=True, cmap='coolwarm', vmin=-1, vmax=1, ax=ax)
+st.pyplot(fig)
 
 # 6. Comparación entre Depresión y otras variables
 st.subheader("Comparación entre Depresión y Otras Variables")
 
 # Boxplot de CGPA por Estado de Depresión
 st.write("CGPA por Estado de Depresión")
-st.write(sns.boxplot(x='Depression', y='CGPA', data=df))
-st.pyplot()
+fig, ax = plt.subplots()
+sns.boxplot(x='Depression', y='CGPA', data=df, ax=ax)
+st.pyplot(fig)
 
 # Boxplot de Horas de Estudio por Estado de Depresión
 st.write("Horas de Estudio por Estado de Depresión")
-st.write(sns.boxplot(x='Depression', y='Work/Study Hours', data=df))
-st.pyplot()
+fig, ax = plt.subplots()
+sns.boxplot(x='Depression', y='Work/Study Hours', data=df, ax=ax)
+st.pyplot(fig)
 
 # 7. Análisis de Tendencias en Variables Categóricas y Depresión
 st.subheader("Análisis de Tendencias en Variables Categóricas y Depresión")
 
 # Gráfico de barras: Depresión vs. Hábitos Alimenticios
 st.write("Relación entre Depresión y Hábitos Alimenticios")
-st.write(df.groupby('Dietary Habits')['Depression'].value_counts().unstack().plot(kind='bar', stacked=True))
-st.pyplot()
+fig, ax = plt.subplots()
+df.groupby('Dietary Habits')['Depression'].value_counts().unstack().plot(kind='bar', stacked=True, ax=ax)
+st.pyplot(fig)
 
 # Gráfico de barras: Depresión vs. Género
 st.write("Relación entre Depresión y Género")
-st.write(df.groupby('Gender')['Depression'].value_counts().unstack().plot(kind='bar', stacked=True))
-st.pyplot()
+fig, ax = plt.subplots()
+df.groupby('Gender')['Depression'].value_counts().unstack().plot(kind='bar', stacked=True, ax=ax)
+st.pyplot(fig)
 
 # 8. Patrones de Sueño y Depresión
 st.subheader("Patrones de Sueño y Depresión")
@@ -93,9 +103,10 @@ depression_counts = irregular_sleep['Depression'].value_counts()
 
 # Gráfico circular para Patrones de Sueño
 st.write("Porcentaje de Depresión en Estudiantes con Patrones de Sueño Irregulares")
-st.write(plt.pie(depression_counts, labels=["Deprimidos", "No Deprimidos"], autopct='%1.1f%%', startangle=90, colors=['red', 'green']))
-plt.axis('equal')  # Asegurar que el gráfico sea circular
-st.pyplot()
+fig, ax = plt.subplots()
+ax.pie(depression_counts, labels=["Deprimidos", "No Deprimidos"], autopct='%1.1f%%', startangle=90, colors=['red', 'green'])
+ax.axis('equal')  # Asegurar que el gráfico sea circular
+st.pyplot(fig)
 
 # Conclusión General
 st.subheader("Conclusión General")
