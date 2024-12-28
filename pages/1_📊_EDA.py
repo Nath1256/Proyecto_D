@@ -37,7 +37,7 @@ y_pred = rf_model.predict(X_test)
 st.subheader("Evaluación del Modelo")
 
 # Mostrar la precisión
-st.write("### Precisión del Modelo:", accuracy_score(y_test, y_pred))
+st.write("## Precisión del Modelo:", accuracy_score(y_test, y_pred))
 
 # Mostrar el reporte de clasificación
 st.write("### Reporte de Clasificación:")
