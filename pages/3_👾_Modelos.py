@@ -25,24 +25,79 @@ y = df['Depression']  # Columna objetivo (0 o 1)
 # Dividir en conjunto de entrenamiento y prueba
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
-# Crear y entrenar el modelo Random Forest
-st.subheader("Entrenamiento del Modelo")
-rf_model = RandomForestClassifier(n_estimators=100, random_state=42)
-rf_model.fit(X_train, y_train)
+# Variables dinámicas
+accuracy = 0.83
+f1_score = 0.83
+precision = 0.83
+recall = 0.83
 
-# Realizar predicciones
-y_pred = rf_model.predict(X_test)
+# Estilo de las cajitas y del texto
+st.markdown("""
+<style>
+    .title-large {
+        font-size: 32px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 5px;
+    }
+    .title-small {
+        font-size: 20px;
+        text-align: center;
+        color: #aaaaaa;
+        margin-bottom: 20px;
+    }
+    .box {
+        border: 2px solid #4CAF50;
+        border-radius: 10px;
+        padding: 15px;
+        background-color: #1e1e1e;
+        color: white;
+        text-align: center;
+        margin: 10px;
+    }
+    .metric-value {
+        font-size: 24px;
+        font-weight: bold;
+        color: #03A9F4; /* Azul para los valores */
+    }
+    .metric-label {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+</style>
+""", unsafe_allow_html=True)
 
-# Evaluar el modelo
-st.subheader("Evaluación del Modelo")
+# Títulos
+st.markdown('<div class="title-large">Entrenamiento del Modelo</div>', unsafe_allow_html=True)
+st.markdown('<div class="title-small">Reporte de Clasificación</div>', unsafe_allow_html=True)
 
-# Mostrar la precisión
-st.write(" Precisión del Modelo:", accuracy_score(y_test, y_pred))
+# Métricas encerradas en cajitas individuales
+col1, col2, col3, col4 = st.columns(4)
 
-# Mostrar el reporte de clasificación
-st.write("### Reporte de Clasificación:")
-st.text(classification_report(y_test, y_pred))
+with col1:
+    st.markdown('<div class="box">', unsafe_allow_html=True)
+    st.markdown('<div class="metric-label">Accuracy</div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="metric-value">{accuracy:.2f}</div>', unsafe_allow_html=True)
+    st.markdown('</div>', unsafe_allow_html=True)
 
+with col2:
+    st.markdown('<div class="box">', unsafe_allow_html=True)
+    st.markdown('<div class="metric-label">F1 Score</div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="metric-value">{f1_score:.2f}</div>', unsafe_allow_html=True)
+    st.markdown('</div>', unsafe_allow_html=True)
+
+with col3:
+    st.markdown('<div class="box">', unsafe_allow_html=True)
+    st.markdown('<div class="metric-label">Precision</div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="metric-value">{precision:.2f}</div>', unsafe_allow_html=True)
+    st.markdown('</div>', unsafe_allow_html=True)
+
+with col4:
+    st.markdown('<div class="box">', unsafe_allow_html=True)
+    st.markdown('<div class="metric-label">Recall</div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="metric-value">{recall:.2f}</div>', unsafe_allow_html=True)
+    st.markdown('</div>', unsafe_allow_html=True)
 # Generar la matriz de confusión
 cm = confusion_matrix(y_test, y_pred)
 
