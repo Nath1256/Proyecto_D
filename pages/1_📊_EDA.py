@@ -35,10 +35,22 @@ st.write(df['CGPA'].hist())
 st.pyplot()
 
 # Histograma de Work/Study Hours
+<<<<<<< HEAD
 st.write("Gráfica: Distribución de Horas de Estudio")
 st.write("Esta gráfica muestra la distribución del tiempo semanal dedicado al estudio/trabajo entre los estudiantes.")
 st.write(df['Work/Study Hours'].hist())
 st.pyplot()
+=======
+st.write("Distribución de Horas de Estudio")
+data = {'Work/Study Hours': [2, 3, 4, 5, 6, 7, 8, 3, 4, 5]}
+df = pd.DataFrame(data)
+fig, ax = plt.subplots()
+df['Work/Study Hours'].hist(ax=ax)
+ax.set_title("Histograma de Horas de Estudio")
+ax.set_xlabel("Horas")
+ax.set_ylabel("Frecuencia")
+st.pyplot(fig)
+>>>>>>> 1b8c8550133228712fdf558d1f419bdc62cd341f
 
 # 4. Distribución de variables categóricas
 st.subheader("Distribución de Variables Categóricas")
