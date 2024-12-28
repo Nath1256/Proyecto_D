@@ -10,7 +10,7 @@ st.title("Análisis de Depresión Estudiantil con Random Forest")
 
 # Cargar el dataset
 st.subheader("Cargar el Dataset")
-df = pd.read_csv('/workspaces/Proyecto_D/data/Student Depression Dataset.csv')
+df = pd.read_csv('data/Student Depression Dataset.csv')
 st.write("Datos cargados exitosamente", df.head())  # Mostrar las primeras filas del dataset
 
 # Realizar one-hot encoding para las variables categóricas
