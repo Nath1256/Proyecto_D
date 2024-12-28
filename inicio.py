@@ -51,6 +51,21 @@ st.write("""1.Los estudiantes de genero masculino tienen mayores probabilidades 
 5.Los estudiantes con patrones de sueño irregulares tienen mayores probabilidades de estar deprimidos.""")
 
 st.title("Modelos")
-st.write("lalalal")
+st.write("se seleccionó el algoritmo **Random Forest**, que ofrece robustez frente a datos complejos y permite capturar relaciones no lineales entre las variables.")
+
+col5, col6= st.columns([2,2])
+with col5:
+    st.markdown('<div class="column">', unsafe_allow_html=True)
+    st.image("utils/random.jpg", width=350)
+    st.markdown('</div>', unsafe_allow_html=True)
+
+with col6:
+    st.subheader("Random Forest")
+    st.markdown("Random Forest es un algoritmo de aprendizaje supervisado basado en la combinación de múltiples árboles de decisión para mejorar la precisión y reducir el riesgo de sobreajuste")
+
+    
+
+
+
 
 
