@@ -8,7 +8,6 @@ st.markdown("""
 
 st.set_page_config(page_title="análisis_depresión")
 layout="wide"
-st.title("Proyecto Final")
 st.markdown("## Integrantes:")
 st.write("")
 st.write("Saúl Eduardo Andino Quijada")
