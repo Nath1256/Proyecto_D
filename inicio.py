@@ -1,18 +1,7 @@
 import streamlit as st
 
-<<<<<<< HEAD
-st.set_page_config(page_title="análisis_depresión")
-layout="wide"
-st.title("Proyecto Final")
-st.write("integrantes:")
-st.write("Saúl Eduardo Andino Quijada")
-st.write("Natalia Sofía Coto Mendoza")
-st.write("Helen Esmeralda Gil Alvarez")
-st.write("Julia Beatriz Henriquez Mendoza")
-=======
-# Configuración de la página (debe ser el primer comando)
+# Configuración de la página
 st.set_page_config(page_title="Análisis Depresión", layout="wide")
->>>>>>> 484c37fa76c052a5d7ed2023fd69123744f10e44
 
 # Usamos HTML y CSS para centrar el título y darle color verde claro
 st.markdown("""
@@ -99,23 +88,9 @@ with col3:
 
 with col4:
     st.subheader("Hipótesis Propuestas")
-<<<<<<< HEAD
-    st.markdown("""En esta página se presentará las hipótesis hechas en un principio mediante gráficos
-    utilizamos las siguientes hipotesis para crear las gráficas:""")
-    
-    
-st.write("""1.Los estudiantes de genero masculino tienen mayores probabilidades de estar deprimidos.
-
-2.Los estudiantes con buenos hábitos alimenticios tienen menos probabilidades de estar deprimidos.
-
-3.Los estudiantes con mejor desempeño académico (CGPA) tienen menos probabilidades de estar deprimidos.
-
-4.Los estudiantes que estudian más horas a la semana tienen menos probabilidades de estar deprimidos.
-
-5.Los estudiantes con patrones de sueño irregulares tienen mayores probabilidades de estar deprimidos.""")
-=======
     st.markdown("""En esta página se presentarán las hipótesis realizadas al principio mediante gráficos. Utilizamos las siguientes hipótesis para crear las gráficas:""")
 
+# Mostrar hipótesis
 st.markdown("""
 <ul class="hypothesis-list">
     <li>Los estudiantes de género masculino tienen mayores probabilidades de estar deprimidos.</li>
@@ -126,12 +101,12 @@ st.markdown("""
 </ul>
 """, unsafe_allow_html=True)
 
+# Título de la siguiente sección
 st.title("Modelos")
 st.write("Se seleccionó el algoritmo **Random Forest**, que ofrece robustez frente a datos complejos y permite capturar relaciones no lineales entre las variables.")
 
 # Mostrar imagen y texto sobre Random Forest
 col5, col6 = st.columns([2, 2])
->>>>>>> 484c37fa76c052a5d7ed2023fd69123744f10e44
 
 with col5:
     st.image("utils/random.jpg", width=350, use_container_width=True, caption="Modelo Random Forest")
