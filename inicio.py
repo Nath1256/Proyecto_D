@@ -1,10 +1,15 @@
 import streamlit as st
 import os
 
+# Usamos HTML y CSS para centrar el título y darle color verde claro
+st.markdown("""
+    <h1 style="text-align: center; color: lightgreen;">Proyecto Final</h1>
+""", unsafe_allow_html=True)
+
 st.set_page_config(page_title="análisis_depresión")
 layout="wide"
 st.title("Proyecto Final")
-st.write("integrantes:")
+st.markdown("## Integrantes:")
 st.write("")
 st.write("Saúl Eduardo Andino Quijada")
 st.write("Natalia Sofía Coto Mendoza")
