@@ -9,14 +9,14 @@ from sklearn.metrics import accuracy_score, classification_report, confusion_mat
 st.title("Análisis de Depresión Estudiantil con Random Forest")
 
 # Cargar el dataset
-st.subheader("Cargar el Dataset")
+st.subheader("Dataset")
 df = pd.read_csv('data/Student Depression Dataset.csv')
-st.write("Datos cargados exitosamente", df.head())  # Mostrar las primeras filas del dataset
+st.write("Datos", df.head())  # Mostrar las primeras filas del dataset
 
 # Realizar one-hot encoding para las variables categóricas
 st.subheader("Preprocesamiento de Datos")
 df = pd.get_dummies(df, drop_first=True)
-st.write("Datos después del One-Hot Encoding", df.head())  # Mostrar las primeras filas después del encoding
+st.write("Datos ", df.head())  # Mostrar las primeras filas después del encoding
 
 # Dividir el dataset en variables independientes (X) y dependientes (y)
 X = df.drop('Depression', axis=1)  # Asegúrate de usar el nombre correcto de la columna objetivo
@@ -55,5 +55,4 @@ plt.title("Matriz de Confusión")
 # Mostrar la matriz de confusión en Streamlit
 st.pyplot(plt)
 
-# Mostrar un mensaje de finalización
-st.success("Análisis completado con éxito.")
+
