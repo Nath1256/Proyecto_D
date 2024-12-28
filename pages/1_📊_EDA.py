@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Cargar el dataset solo una vez
-df = pd.read_csv('/workspaces/Proyecto_D/data/Student Depression Dataset.csv')
+df = pd.read_csv('data/Student Depression Dataset.csv')
 
 # Título principal de la aplicación
 st.title("Análisis de Depresión Estudiantil")
