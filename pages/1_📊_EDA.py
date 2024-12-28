@@ -33,8 +33,14 @@ st.pyplot(fig)
 
 # Histograma de Work/Study Hours
 st.write("Distribución de Horas de Estudio")
-st.write(df['Work/Study Hours'].hist())
-st.pyplot()
+data = {'Work/Study Hours': [2, 3, 4, 5, 6, 7, 8, 3, 4, 5]}
+df = pd.DataFrame(data)
+fig, ax = plt.subplots()
+df['Work/Study Hours'].hist(ax=ax)
+ax.set_title("Histograma de Horas de Estudio")
+ax.set_xlabel("Horas")
+ax.set_ylabel("Frecuencia")
+st.pyplot(fig)
 
 # 4. Distribución de variables categóricas
 st.subheader("Distribución de Variables Categóricas")
