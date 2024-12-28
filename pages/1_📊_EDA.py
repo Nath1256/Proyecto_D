@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
-import seaborn as sns
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 # Cargar el dataset
 df = pd.read_csv('data/Student Depression Dataset.csv')
@@ -114,14 +114,3 @@ st.write(plt.pie(depression_counts, labels=["Deprimidos", "No Deprimidos"], auto
 plt.axis('equal')  # Asegurar que el gráfico sea circular
 st.pyplot()
 
-# Conclusión General
-st.subheader("Conclusión General")
-st.write("""
-El análisis de los datos revela varias relaciones interesantes entre las variables y la depresión estudiantil:
-
-1. **Género**: Aunque hay más hombres deprimidos que mujeres, las proporciones no son significativamente diferentes, lo que sugiere que ambos géneros enfrentan riesgos similares de depresión.
-2. **Hábitos Alimenticios**: Los estudiantes con hábitos alimenticios saludables tienden a tener menos probabilidades de estar deprimidos.
-3. **Desempeño Académico (CGPA)**: No se observa una relación clara entre el CGPA y la depresión, lo que indica que el rendimiento académico por sí solo no es un predictor claro de la depresión.
-4. **Horas de Estudio**: Los estudiantes deprimidos parecen estar dedicando más tiempo al estudio, lo que podría estar relacionado con el estrés.
-5. **Sueño Irregular**: Los estudiantes con menos de 5 horas de sueño tienen una mayor probabilidad de estar deprimidos, lo que sugiere que el sueño irregular es un factor de riesgo significativo para la depresión.
-""")
