@@ -24,8 +24,12 @@ st.subheader("Distribución de Variables Numéricas")
 
 # Histograma de CGPA
 st.write("Distribución de CGPA")
-st.write(df['CGPA'].hist())
-st.pyplot()
+fig, ax = plt.subplots()
+df['CGPA'].hist(ax=ax, bins=20, color='blue', edgecolor='black')
+ax.set_title("Distribución de CGPA")
+ax.set_xlabel("CGPA")
+ax.set_ylabel("Frecuencia")
+st.pyplot(fig)
 
 # Histograma de Work/Study Hours
 st.write("Distribución de Horas de Estudio")
@@ -37,8 +41,12 @@ st.subheader("Distribución de Variables Categóricas")
 
 # Gráfico de barras de Género
 st.write("Distribución de Género")
-st.write(df['Gender'].value_counts().plot(kind='bar'))
-st.pyplot()
+fig, ax = plt.subplots()
+df['Gender'].value_counts().plot(kind='bar', ax=ax)
+ax.set_title("Distribución de Género")
+ax.set_xlabel("Género")
+ax.set_ylabel("Cantidad")
+st.pyplot(fig)
 
 # Gráfico de barras de Hábitos Alimenticios
 st.write("Distribución de Hábitos Alimenticios")
