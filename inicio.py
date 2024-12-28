@@ -1,13 +1,13 @@
 import streamlit as st
 import os
 
+# Configuración de la página (debe ser el primer comando)
+st.set_page_config(page_title="Análisis Depresión", layout="wide")
+
 # Usamos HTML y CSS para centrar el título y darle color verde claro
 st.markdown("""
     <h1 style="text-align: center; color: lightgreen;">Proyecto Final</h1>
 """, unsafe_allow_html=True)
-
-# Configuración de la página
-st.set_page_config(page_title="Análisis Depresión", layout="wide")
 
 st.markdown("## Integrantes:")
 st.write("")
