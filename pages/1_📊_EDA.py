@@ -58,8 +58,11 @@ st.pyplot(fig)
 # 5. Correlación entre variables numéricas
 st.subheader("Matriz de Correlación entre Variables Numéricas")
 
-# Select only numeric columns and handle missing values (fill with mean)
-df_numeric = df.select_dtypes(include=['number']).fillna(df.mean())
+# Convert non-numeric columns to NaN (if any) and select only numeric columns
+df_numeric = df.apply(pd.to_numeric, errors='coerce')  # Convert to numeric, coerce errors to NaN
+
+# Fill missing values with the mean of each column
+df_numeric = df_numeric.fillna(df_numeric.mean())
 
 # Calculate correlation on numeric columns
 fig, ax = plt.subplots()
