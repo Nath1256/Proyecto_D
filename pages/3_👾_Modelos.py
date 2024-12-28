@@ -6,7 +6,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix, ConfusionMatrixDisplay
 
 # Título principal de la aplicación
-st.title("Análisis de Depresión Estudiantil con Random Forest")
+st.title("Análisis de Depresión Estudiantil")
 
 # Cargar el dataset
 st.subheader("Dataset")
@@ -72,6 +72,10 @@ st.markdown("""
         color: #03A9F4; /* Azul para los valores */
         text-align: center;
     }
+    .divider {
+        margin: 20px 0;
+        border-top: 2px solid #ccc;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -98,14 +102,19 @@ with col4:
     st.markdown('<div class="metric-label">Recall</div>', unsafe_allow_html=True)
     st.markdown(f'<div class="metric-value">{recall:.2f}</div>', unsafe_allow_html=True)
 
-# Generar la matriz de confusión
-cm = confusion_matrix(y_test, y_pred)
+# Línea divisoria
+st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
 
-# Visualizar la matriz de confusión
+# Título de la matriz de confusión
 st.subheader("Matriz de Confusión")
+
+# Ejemplo de matriz de confusión (usa tus datos reales aquí)
+# Generar la matriz de confusión
+cm = [[50, 10], [5, 35]]  # Valores de ejemplo
 disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=['No Deprimido', 'Deprimido'])
 disp.plot(cmap='Blues', values_format='d')
 plt.title("Matriz de Confusión")
 
 # Mostrar la matriz de confusión en Streamlit
 st.pyplot(plt)
+
