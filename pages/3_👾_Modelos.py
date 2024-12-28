@@ -111,8 +111,6 @@ st.subheader("Matriz de Confusión")
 # Generar la matriz de confusión
 cm = confusion_matrix(y_test, y_pred)
 
-# Visualizar la matriz de confusión
-st.subheader("Matriz de Confusión")
 disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=['No Deprimido', 'Deprimido'])
 disp.plot(cmap='Blues', values_format='d')
 plt.title("Matriz de Confusión")
