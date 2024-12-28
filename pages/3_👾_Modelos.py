@@ -45,7 +45,7 @@ f1_score = 0.83
 precision = 0.83
 recall = 0.83
 
-# Estilo de las cajitas y del texto
+# Estilo del texto
 st.markdown("""
 <style>
     .title-large {
@@ -60,24 +60,17 @@ st.markdown("""
         color: #aaaaaa;
         margin-bottom: 20px;
     }
-    .box {
-        border: 2px solid #4CAF50;
-        border-radius: 10px;
-        padding: 15px;
-        background-color: #1e1e1e;
-        color: white;
+    .metric-label {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 5px;
         text-align: center;
-        margin: 10px;
     }
     .metric-value {
         font-size: 24px;
         font-weight: bold;
         color: #03A9F4; /* Azul para los valores */
-    }
-    .metric-label {
-        font-size: 16px;
-        font-weight: bold;
-        margin-bottom: 5px;
+        text-align: center;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -86,36 +79,24 @@ st.markdown("""
 st.markdown('<div class="title-large">Entrenamiento del Modelo</div>', unsafe_allow_html=True)
 st.markdown('<div class="title-small">Reporte de Clasificación</div>', unsafe_allow_html=True)
 
-# Métricas encerradas en cajitas individuales
+# Métricas alineadas en columnas
 col1, col2, col3, col4 = st.columns(4)
 
-# Cajita 1: Accuracy
 with col1:
-    st.markdown('<div class="box">', unsafe_allow_html=True)
     st.markdown('<div class="metric-label">Accuracy</div>', unsafe_allow_html=True)
     st.markdown(f'<div class="metric-value">{accuracy:.2f}</div>', unsafe_allow_html=True)
-    st.markdown('</div>', unsafe_allow_html=True)
 
-# Cajita 2: F1 Score
 with col2:
-    st.markdown('<div class="box">', unsafe_allow_html=True)
     st.markdown('<div class="metric-label">F1 Score</div>', unsafe_allow_html=True)
     st.markdown(f'<div class="metric-value">{f1_score:.2f}</div>', unsafe_allow_html=True)
-    st.markdown('</div>', unsafe_allow_html=True)
 
-# Cajita 3: Precision
 with col3:
-    st.markdown('<div class="box">', unsafe_allow_html=True)
     st.markdown('<div class="metric-label">Precision</div>', unsafe_allow_html=True)
     st.markdown(f'<div class="metric-value">{precision:.2f}</div>', unsafe_allow_html=True)
-    st.markdown('</div>', unsafe_allow_html=True)
 
-# Cajita 4: Recall
 with col4:
-    st.markdown('<div class="box">', unsafe_allow_html=True)
     st.markdown('<div class="metric-label">Recall</div>', unsafe_allow_html=True)
     st.markdown(f'<div class="metric-value">{recall:.2f}</div>', unsafe_allow_html=True)
-    st.markdown('</div>', unsafe_allow_html=True)
 
 # Generar la matriz de confusión
 cm = confusion_matrix(y_test, y_pred)
