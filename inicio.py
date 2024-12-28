@@ -75,7 +75,7 @@ st.write("Este proyecto utilizó el conjunto de datos *Student Depression Datase
 col1, col2 = st.columns([2, 2])
 
 with col1:
-    st.image("utils/tabla.png", width=350, use_column_width="auto", caption="Exploración de Datos")
+    st.image("utils/tabla.png", width=350, use_container_width=True, caption="Exploración de Datos")
 
 with col2:
     st.markdown("""Este dataset cuenta con 27,901 filas y 18 columnas. Algunas columnas son cuantitativas (por ejemplo, CGPA, Work/Study Hours), y otras son cualitativas (por ejemplo, Gender, City). Notamos que hay una columna con valores faltantes (Financial Stress) que tiene 27,898 valores no nulos, lo que indica 3 valores faltantes.""")
@@ -84,7 +84,7 @@ with col2:
 col3, col4 = st.columns([2, 2])
 
 with col3:
-    st.image("utils/Dep.jpg", width=350, use_column_width="auto", caption="Patrones de Depresión")
+    st.image("utils/Dep.jpg", width=350, use_container_width=True, caption="Patrones de Depresión")
 
 with col4:
     st.subheader("Hipótesis Propuestas")
@@ -107,7 +107,7 @@ st.write("Se seleccionó el algoritmo **Random Forest**, que ofrece robustez fre
 col5, col6 = st.columns([2, 2])
 
 with col5:
-    st.image("utils/random.jpg", width=350, use_column_width="auto", caption="Modelo Random Forest")
+    st.image("utils/random.jpg", width=350, use_container_width=True, caption="Modelo Random Forest")
 
 with col6:
     st.subheader("Random Forest")
