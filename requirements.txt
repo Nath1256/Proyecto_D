@@ -1,1 +1,6 @@
+<<<<<<< HEAD
 seaborn
+=======
+matplotlib
+scikit-learn
+>>>>>>> 484c37fa76c052a5d7ed2023fd69123744f10e44
