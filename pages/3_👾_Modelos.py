@@ -39,41 +39,63 @@ st.subheader("Evaluación del Modelo")
 # Mostrar la precisión
 st.write(" Precisión del Modelo:", accuracy_score(y_test, y_pred))
 
-# Estilo de contenedor para las métricas
+# Variables dinámicas
+accuracy = 0.83
+f1_score = 0.83
+precision = 0.83
+recall = 0.83
+
+# Estilo de la cajita
 st.markdown("""
 <style>
-    .metric-container {
-        border: 2px solid #2a2a2a;
+    .box {
+        border: 2px solid #4CAF50;
         border-radius: 10px;
-        padding: 10px;
+        padding: 15px;
         margin: 10px;
         background-color: #1e1e1e;
+        color: white;
+    }
+    .metric-label {
+        font-weight: bold;
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
+    .metric-value {
+        font-size: 20px;
+        font-weight: bold;
+        color: #76FF03;
     }
 </style>
 """, unsafe_allow_html=True)
 
-# Encabezado de métricas
+# Título
 st.title("Evaluación del Modelo")
 
-# Contenedor personalizado
-with st.container():
-    st.markdown('<div class="metric-container">', unsafe_allow_html=True)
+# Contenedor con las métricas dinámicas
+st.markdown('<div class="box">', unsafe_allow_html=True)
+st.markdown('<h3 style="text-align: center;">Métricas</h3>', unsafe_allow_html=True)
 
-    # Métricas
+# Organización en columnas
 col1, col2, col3, col4 = st.columns(4)
 
 with col1:
-    st.metric(label="Accuracy", value="0.83")
+    st.markdown('<div class="metric-label">Accuracy</div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="metric-value">{accuracy:.2f}</div>', unsafe_allow_html=True)
 
 with col2:
-    st.metric(label="F1 Score", value="0.83")
+    st.markdown('<div class="metric-label">F1 Score</div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="metric-value">{f1_score:.2f}</div>', unsafe_allow_html=True)
 
 with col3:
-    st.metric(label="Precisión", value="0.83")
+    st.markdown('<div class="metric-label">Precision</div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="metric-value">{precision:.2f}</div>', unsafe_allow_html=True)
 
 with col4:
-    st.metric(label="Recall", value="0.83")
-    st.markdown('</div>', unsafe_allow_html=True)
+    st.markdown('<div class="metric-label">Recall</div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="metric-value">{recall:.2f}</div>', unsafe_allow_html=True)
+
+st.markdown('</div>', unsafe_allow_html=True)
 
 # Generar la matriz de confusión
 cm = confusion_matrix(y_test, y_pred)
