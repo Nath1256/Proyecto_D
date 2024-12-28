@@ -1,25 +1,24 @@
 import streamlit as st
 
 # Configuración de la página
-st.set_page_config(page_title="Análisis de Depresión", layout="wide")
+st.set_page_config(page_title="Análisis Depresión", layout="wide")
 
-# Usamos HTML y CSS para centrar los títulos y personalizar colores y estilos
+# Usamos HTML y CSS para centrar el título y darle color verde claro
 st.markdown("""
     <style>
         body {
-            background-color: #f4f8fb;
-            font-family: 'Arial', sans-serif;
+            background-color: #f7f9f9;
+            font-family: Arial, sans-serif;
         }
         .title {
             text-align: center;
-            color: #3498db; /* Azul */
+            color: lightgreen;
             font-size: 50px;
             margin-top: 30px;
-            font-weight: bold;
         }
         .subheader {
             text-align: center;
-            color: #2980b9; /* Azul más oscuro */
+            color: #4CAF50;
             font-size: 35px;
             margin-top: 20px;
         }
@@ -56,9 +55,15 @@ st.markdown("""
             color: #333;
             margin-top: 30px;
         }
-        .divider {
-            margin: 40px 0;
-            border-top: 2px solid #3498db;
+        h1, h2 {
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+        }
+        .model-header {
+            text-align: center;
+            color: #4CAF50;
+            font-size: 40px;
+            margin-top: 30px;
         }
     </style>
 
@@ -66,17 +71,14 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Mostrar los integrantes
-st.markdown(
-    "<div class='team'><strong>Integrantes:</strong><br>Saúl Eduardo Andino Quijada<br>Natalia Sofía Coto Mendoza<br>Helen Esmeralda Gil Alvarez<br>Julia Beatriz Henriquez Mendoza</div>", 
-    unsafe_allow_html=True
-)
+st.markdown("<div class='team'><strong>Integrantes:</strong><br>Saúl Eduardo Andino Quijada<br>Natalia Sofía Coto Mendoza<br>Helen Esmeralda Gil Alvarez<br>Julia Beatriz Henriquez Mendoza</div>", unsafe_allow_html=True)
 
 # Mensaje de bienvenida
 st.markdown("<div class='subheader'>🔆 Bienvenidos 🔆</div>", unsafe_allow_html=True)
 st.markdown("<div class='intro-text'>Este proyecto incluye las siguientes páginas y su análisis de datos sobre la depresión estudiantil.</div>", unsafe_allow_html=True)
 
 # Sección de EDA
-st.header("EDA: Análisis Exploratorio de Datos")
+st.markdown("<div class='model-header'>EDA: Análisis Exploratorio de Datos</div>", unsafe_allow_html=True)
 st.write("Este proyecto utilizó el conjunto de datos *Student Depression Dataset*, cuyo objetivo es analizar y encontrar patrones en los hábitos de los estudiantes.")
 
 # Columnas para mostrar las imágenes
@@ -86,13 +88,7 @@ with col1:
     st.image("utils/tabla.png", width=350, use_container_width=True, caption="Exploración de Datos")
 
 with col2:
-    st.markdown(
-        """
-        Este dataset cuenta con 27,901 filas y 18 columnas. Algunas columnas son cuantitativas (por ejemplo, CGPA, Work/Study Hours), 
-        y otras son cualitativas (por ejemplo, Gender, City). Notamos que hay una columna con valores faltantes (Financial Stress) que tiene 
-        27,898 valores no nulos, lo que indica 3 valores faltantes.
-        """
-    )
+    st.markdown("""Este dataset cuenta con 27,901 filas y 18 columnas. Algunas columnas son cuantitativas (por ejemplo, CGPA, Work/Study Hours), y otras son cualitativas (por ejemplo, Gender, City). Notamos que hay una columna con valores faltantes (Financial Stress) que tiene 27,898 valores no nulos, lo que indica 3 valores faltantes.""")
 
 # Segunda sección de EDA
 col3, col4 = st.columns([2, 2])
@@ -102,9 +98,7 @@ with col3:
 
 with col4:
     st.subheader("Hipótesis Propuestas")
-    st.markdown("""
-        En esta página se presentarán las hipótesis realizadas al principio mediante gráficos. Utilizamos las siguientes hipótesis para crear las gráficas:
-    """)
+    st.markdown("""En esta página se presentarán las hipótesis realizadas al principio mediante gráficos. Utilizamos las siguientes hipótesis para crear las gráficas:""")
 
 # Mostrar hipótesis
 st.markdown("""
@@ -117,11 +111,8 @@ st.markdown("""
 </ul>
 """, unsafe_allow_html=True)
 
-# Divisor
-st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
-
 # Título de la siguiente sección
-st.title("Modelos")
+st.markdown("<div class='model-header'>Modelos</div>", unsafe_allow_html=True)
 st.write("Se seleccionó el algoritmo **Random Forest**, que ofrece robustez frente a datos complejos y permite capturar relaciones no lineales entre las variables.")
 
 # Mostrar imagen y texto sobre Random Forest
@@ -132,6 +123,5 @@ with col5:
 
 with col6:
     st.subheader("Random Forest")
-    st.markdown(
-        "Random Forest es un algoritmo de aprendizaje supervisado basado en la combinación de múltiples árboles de decisión para mejorar la precisión y reducir el riesgo de sobreajuste."
-    )
+    st.markdown("Random Forest es un algoritmo de aprendizaje supervisado basado en la combinación de múltiples árboles de decisión para mejorar la precisión y reducir el riesgo de sobreajuste.")
+
