@@ -20,7 +20,8 @@ st.markdown("""
     <h2 style="text-align: center; color: #4CAF50;">🔆 Bienvenidos 🔆</h2>
 """, unsafe_allow_html=True)
 
-Este proyecto incluye las siguientes páginas:""")
+st.markdown("Este proyecto incluye las siguientes páginas:")
+
 st.header("EDA: Análisis Exploratorio de Datos")
 st.write("Este proyecto utilizó el conjunto de datos *Student Depression Dataset*, donde el objetivo es poder analizar y relacionar patrones que existen en los hábitos de los estudiantes.")
 
