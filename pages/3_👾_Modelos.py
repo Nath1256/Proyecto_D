@@ -108,9 +108,11 @@ st.markdown('<div class="divider"></div>', unsafe_allow_html=True)
 # Título de la matriz de confusión
 st.subheader("Matriz de Confusión")
 
-# Ejemplo de matriz de confusión (usa tus datos reales aquí)
 # Generar la matriz de confusión
-cm = [[50, 10], [5, 35]]  # Valores de ejemplo
+cm = confusion_matrix(y_test, y_pred)
+
+# Visualizar la matriz de confusión
+st.subheader("Matriz de Confusión")
 disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=['No Deprimido', 'Deprimido'])
 disp.plot(cmap='Blues', values_format='d')
 plt.title("Matriz de Confusión")
