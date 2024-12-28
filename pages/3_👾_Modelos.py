@@ -14,7 +14,7 @@ df = pd.read_csv('data/Student Depression Dataset.csv')
 st.write("Datos", df.head())  # Mostrar las primeras filas del dataset
 
 # Realizar one-hot encoding para las variables categóricas
-st.subheader("Preprocesamiento de Datos")
+st.subheader("Pre-procesamiento de Datos")
 df = pd.get_dummies(df, drop_first=True)
 st.write("Datos ", df.head())  # Mostrar las primeras filas después del encoding
 
