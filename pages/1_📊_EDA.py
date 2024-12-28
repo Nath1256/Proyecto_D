@@ -25,7 +25,175 @@ st.subheader("Análisis de Valores Nulos")
 st.write("Se analiza la cantidad de valores faltantes por columna para garantizar la calidad del dataset:")
 st.write(df.isnull().sum())  # Número de valores nulos por columna
 
-# 3. Distribución de las variables
+# 3. Información estadística
+st.subheader("Información Estadística")
+
+# Gender distribution
+st.write("Distribución de Género")
+st.write("Distribución de género en el dataset:")
+gender_stats = {
+    'Male': 15547,
+    'Female': 12354
+}
+st.write(gender_stats)
+
+# City distribution
+st.write("Distribución de Ciudades")
+st.write("Distribución de estudiantes por ciudad:")
+city_stats = {
+    'Kalyan': 1570,
+    'Srinagar': 1372,
+    'Hyderabad': 1340,
+    'Vasai-Virar': 1290,
+    'Lucknow': 1155,
+    'Thane': 1139,
+    'Ludhiana': 1111,
+    'Agra': 1094,
+    'Surat': 1078,
+    'Kolkata': 1066,
+    'Jaipur': 1036,
+    'Patna': 1007,
+    'Visakhapatnam': 969,
+    'Pune': 968,
+    'Ahmedabad': 951,
+    'Bhopal': 934,
+    'Chennai': 885,
+    'Meerut': 825,
+    'Rajkot': 816,
+    'Delhi': 768,
+    'Bangalore': 767,
+    'Ghaziabad': 745,
+    'Mumbai': 699,
+    'Vadodara': 694,
+    'Varanasi': 685,
+    'Nagpur': 651,
+    'Indore': 643,
+    'Kanpur': 609,
+    'Nashik': 547,
+    'Faridabad': 461,
+    'Saanvi': 2,
+    'Bhavna': 2,
+    'City': 2,
+    'Harsha': 2,
+    'Kibara': 1,
+    'Nandini': 1,
+    'Nalini': 1,
+    'Mihir': 1,
+    'Nalyan': 1,
+    'M.Com': 1,
+    'ME': 1,
+    'Rashi': 1,
+    'Gaurav': 1,
+    'Reyansh': 1,
+    'Harsh': 1,
+    'Vaanya': 1,
+    'Mira': 1,
+    'Less than 5 Kalyan': 1,
+    '3.0': 1,
+    'Less Delhi': 1,
+    'M.Tech': 1,
+    'Khaziabad': 1
+}
+st.write(city_stats)
+
+# Profession distribution
+st.write("Distribución de Profesiones")
+st.write("Distribución de estudiantes por profesión:")
+profession_stats = {
+    'Student': 27870,
+    'Architect': 8,
+    'Teacher': 6,
+    'Digital Marketer': 3,
+    'Content Writer': 2,
+    'Chef': 2,
+    'Doctor': 2,
+    'Pharmacist': 2,
+    'Civil Engineer': 1,
+    'UX/UI Designer': 1,
+    'Educational Consultant': 1,
+    'Manager': 1,
+    'Lawyer': 1,
+    'Entrepreneur': 1
+}
+st.write(profession_stats)
+
+# Sleep Duration distribution
+st.write("Distribución de Duración de Sueño")
+st.write("Distribución de la duración del sueño entre los estudiantes:")
+sleep_stats = {
+    'Less than 5 hours': 8310,
+    '7-8 hours': 7346,
+    '5-6 hours': 6183,
+    'More than 8 hours': 6044,
+    'Others': 18
+}
+st.write(sleep_stats)
+
+# Dietary Habits distribution
+st.write("Distribución de Hábitos Alimenticios")
+st.write("Distribución de hábitos alimenticios de los estudiantes:")
+diet_stats = {
+    'Unhealthy': 10317,
+    'Moderate': 9921,
+    'Healthy': 7651,
+    'Others': 12
+}
+st.write(diet_stats)
+
+# Degree distribution
+st.write("Distribución de Grado Académico")
+st.write("Distribución de grados académicos de los estudiantes:")
+degree_stats = {
+    'Class 12': 6080,
+    'B.Ed': 1867,
+    'B.Com': 1506,
+    'B.Arch': 1478,
+    'BCA': 1433,
+    'MSc': 1190,
+    'B.Tech': 1152,
+    'MCA': 1044,
+    'M.Tech': 1022,
+    'BHM': 925,
+    'BSc': 888,
+    'M.Ed': 821,
+    'B.Pharm': 810,
+    'M.Com': 734,
+    'MBBS': 696,
+    'BBA': 696,
+    'LLB': 671,
+    'BE': 613,
+    'BA': 600,
+    'M.Pharm': 582,
+    'MD': 572,
+    'MBA': 562,
+    'MA': 544,
+    'PhD': 522,
+    'LLM': 482,
+    'MHM': 191,
+    'ME': 185,
+    'Others': 35
+}
+st.write(degree_stats)
+
+# Family History of Mental Illness distribution
+st.write("Distribución de Antecedentes Familiares de Enfermedades Mentales")
+st.write("Distribución de antecedentes familiares de enfermedades mentales:")
+family_history_stats = {
+    'No': 14398,
+    'Yes': 13503
+}
+st.write(family_history_stats)
+
+# Depression distribution
+st.write("Distribución de Estado de Depresión")
+st.write("Distribución de estudiantes deprimidos y no deprimidos:")
+depression_stats = {
+    '1': 16336,
+    '0': 11565
+}
+st.write(depression_stats)
+
+# 4. Distribución de las variables
 st.subheader("Distribución de Variables Numéricas")
 
 # Histograma de CGPA
@@ -45,39 +213,6 @@ fig, ax = plt.subplots()
 df['Work/Study Hours'].hist(ax=ax)
 ax.set_title("Distribución de Horas de Estudio")
 ax.set_xlabel("Horas de Estudio")
-ax.set_ylabel("Frecuencia")
-st.pyplot(fig)
-
-# 4. Distribución de variables categóricas
-st.subheader("Distribución de Variables Categóricas")
-
-# Gráfico de barras de Género
-st.write("Gráfica: Distribución de Género")
-st.write("Este gráfico de barras ilustra la proporción de estudiantes masculinos y femeninos en el dataset.")
-fig, ax = plt.subplots()
-df['Gender'].value_counts().plot(kind='bar', ax=ax)
-ax.set_title("Distribución de Género")
-ax.set_xlabel("Género")
-ax.set_ylabel("Frecuencia")
-st.pyplot(fig)
-
-# Gráfico de barras de Hábitos Alimenticios
-st.write("Gráfica: Distribución de Hábitos Alimenticios")
-st.write("Este gráfico muestra la frecuencia de cada categoría de hábitos alimenticios (Saludables, Moderados, y No Saludables).")
-fig, ax = plt.subplots()
-df['Dietary Habits'].value_counts().plot(kind='bar', ax=ax)
-ax.set_title("Distribución de Hábitos Alimenticios")
-ax.set_xlabel("Hábitos Alimenticios")
-ax.set_ylabel("Frecuencia")
-st.pyplot(fig)
-
-# Gráfico de barras de Estado de Depresión
-st.write("Gráfica: Distribución de Estado de Depresión")
-st.write("Aquí se observa la proporción de estudiantes deprimidos y no deprimidos en el dataset.")
-fig, ax = plt.subplots()
-df['Depression'].value_counts().plot(kind='bar', ax=ax)
-ax.set_title("Distribución de Estado de Depresión")
-ax.set_xlabel("Estado de Depresión")
 ax.set_ylabel("Frecuencia")
 st.pyplot(fig)
 
