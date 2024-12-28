@@ -5,15 +5,10 @@ st.set_page_config(page_title="análisis_depresión")
 layout="wide"
 st.title("Proyecto Final")
 st.write("integrantes:")
-st.write("")
 st.write("Saúl Eduardo Andino Quijada")
-st.write("")
 st.write("Natalia Sofía Coto Mendoza")
-st.write("")
 st.write("Helen Esmeralda Gil Alvarez")
-st.write("")
 st.write("Julia Beatriz Henriquez Mendoza")
-st.write("")
 
 st.markdown("""
 #Bienvenido
@@ -43,14 +38,14 @@ with col4:
     utilizamos las siguientes hipotesis para crear las gráficas:""")
     
     
-st.write("""#Los estudiantes de genero masculino tienen mayores probabilidades de estar deprimidos.
+st.write("""1.Los estudiantes de genero masculino tienen mayores probabilidades de estar deprimidos.
 
-#Los estudiantes con buenos hábitos alimenticios tienen menos probabilidades de estar deprimidos.
+2.Los estudiantes con buenos hábitos alimenticios tienen menos probabilidades de estar deprimidos.
 
-#Los estudiantes con mejor desempeño académico (CGPA) tienen menos probabilidades de estar deprimidos.
+3.Los estudiantes con mejor desempeño académico (CGPA) tienen menos probabilidades de estar deprimidos.
 
-#Los estudiantes que estudian más horas a la semana tienen menos probabilidades de estar deprimidos.
+4.Los estudiantes que estudian más horas a la semana tienen menos probabilidades de estar deprimidos.
 
-#Los estudiantes con patrones de sueño irregulares tienen mayores probabilidades de estar deprimidos.""")
+5.Los estudiantes con patrones de sueño irregulares tienen mayores probabilidades de estar deprimidos.""")
 
 
