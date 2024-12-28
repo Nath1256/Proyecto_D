@@ -17,7 +17,8 @@ st.write("Helen Esmeralda Gil Alvarez")
 st.write("Julia Beatriz Henriquez Mendoza")
 
 st.markdown("""
-🔆 Bienvenido 🔆
+    <h2 style="text-align: center; color: #4CAF50;">🔆 Bienvenidos 🔆</h2>
+""", unsafe_allow_html=True)
 
 Este proyecto incluye las siguientes páginas:""")
 st.header("EDA: Análisis Exploratorio de Datos")
